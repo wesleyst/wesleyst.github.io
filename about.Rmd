@@ -2,4 +2,14 @@
 title: "About This Website"
 ---
 
-More about this website.
+# Informções Gerais
+
+O projeto consiste na obtenção de informações sobre livros digitais do site da Amazon. Ele tem como principal objetivo a elaboração de uma lista que elenca as principais promoções existentes das editoras Fiel e Monergismo.
+
+Para a obtenção das informações, foi realizado um WebScrapping do site da Amazon e armazenado o histórico de preços do produto em questão.
+
+```{r}
+
+
+
+```

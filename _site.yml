@@ -1,12 +1,14 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "Meu Site"
   left:
     - text: "Home"
       href: index.html
-    - text: "About"
+    - text: "Sobre"
       href: about.html
+    - text: "Painéis"
+      href: Painel.html
 output:
   html_document:
     theme: cosmo
