@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Sobre"
+    - text: "Livros em Promoção"
       href: about.html
     - text: "Painéis"
       href: Painel.html

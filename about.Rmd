@@ -1,15 +1,51 @@
 ---
-title: "About This Website"
+title: "Lista de Livros Digitais em Promoção"
 ---
-
+  
+  
+  
 # Informções Gerais
+  
+O projeto consiste na obtenção de informações sobre livros digitais do site da Amazon. Ele tem como principal objetivo a elaboração de uma lista que elenca as principais promoções existentes das editoras Fiel e Monergismo.  
+Para a obtenção das informações, foi realizado um WebScrapping do site da Amazon e armazenado o histórico de preços dos produtos em questão.  
+Abaixo são apresentados os 10 livros que apresentam a menor diminuição de preços se comparado à sua média histórica.
 
-O projeto consiste na obtenção de informações sobre livros digitais do site da Amazon. Ele tem como principal objetivo a elaboração de uma lista que elenca as principais promoções existentes das editoras Fiel e Monergismo.
+  
+  
+  
 
-Para a obtenção das informações, foi realizado um WebScrapping do site da Amazon e armazenado o histórico de preços do produto em questão.
+```{r setup, include=FALSE, echo=F, warning=FALSE}
 
-```{r}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(pander)
+
+dados <- read_csv("C:/Users/wesle/Desktop/R/7. Webscrapping/1. Web-Amazon/dados.csv")
+selecao <- dados %>% group_by(cod) %>%
+  mutate(min = min(valor), max = max(valor), media = mean(valor), variacao = str_c((valor/media - 1)*100, "%")) %>% 
+  filter(data == min(data)) %>% 
+  ungroup() %>% 
+  arrange(-desc(variacao)) %>% 
+  .[1:10,]
+
+```
+
+```{r loops, echo=F, results="asis", warning=FALSE}
+
+for(i in 1:nrow(selecao)){
+data <- selecao[i,]
+
+data <- data %>% .[1,] %>%
+  select(nome, autor, editora, valor, variacao, min, max, media, url) %>% 
+  rename("Título" = nome, Autor = autor, Editora = editora, Valor = valor, "Variação" = variacao, "Valor Mínimo" = min, "Valor Máximo" = max, "Valor Médio" = media, Imagem = url) %>% 
+  gather("Especificações", Resultado, `Título`:`Valor Médio`) %>% 
+  mutate(Imagem = Imagem %>% pandoc.image.return())
 
 
+print(kable(data, format="html") %>% 
+        kable_styling(full_width=TRUE) %>% 
+        collapse_rows(columns=1, valign="top"))
+}
 
 ```
