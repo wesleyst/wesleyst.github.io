@@ -1,5 +1,19 @@
 ---
-title: "My Website"
+title: "**Sobre o site**"
 ---
 
-Hello, Website!
+#
+
+### Bem-vindo ao meu site!
+### Aqui você poderá encontrar alguns projetos pessoais que desenvolvi. Você encontrará principalmente 3 tipos de análises:
+#
+* ### **Painéis de dados** – Neles busco apresentar uma visualização amigável de diversos dados públicos do governo.
+#
+* ### **Estudos de caso** – Aqui apresento algumas análises desenvolvidas. Muitas dessas análises são realizadas a partir de alguma curiosidade particular ou a partir da aplicação de alguma ferramenta de análise de dados que estou aprendendo. Ainda está em construção essa parte do site, mas se você quiser acompanhar alguns estudos já realizados, poderá encontrar nos artigos do [**meu perfil do Linkedin**](https://www.linkedin.com/in/wesley-teixeira/).
+#
+* ### **Compartilhamento de ferramentas** – Esse tipo de aba ainda não está muito bem definido, mas consiste em alguns projetos particulares que podem trazer diretamente algum benefício a quem está lendo. Como exemplo, posso citar a lista que venho fazendo de promoções de livros na Amazon.
+
+#
+
+# **Sobre mim**
+### Meu nome é Wesley Teixeira e sou apaixonado por dados. Creio no poder que os dados podem trazer para uma organização e para a sociedade. Sendo assim, procuro sempre realizar análises e painéis de forma a divulgar informações e mostrar o que ultimamente venho aprendendo.
