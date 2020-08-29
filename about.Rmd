@@ -20,7 +20,7 @@ title: "Lista de Livros Digitais em Promoção"
 [4](https://amzn.to/3luw3am)
 [5](https://amzn.to/31EZqPh)
   
-  
+
   
 
 ```{r setup, include=FALSE, echo=F, warning=FALSE}
@@ -43,19 +43,19 @@ selecao <- dados %>% group_by(cod) %>%
 
 ```{r loops, echo=F, results="asis", warning=FALSE}
 
-for(i in 1:nrow(selecao)){
-data <- selecao[i,]
+#for(i in 1:nrow(selecao)){
+#data <- selecao[i,]
 
-data <- data %>% .[1,] %>%
-  select(nome, autor, editora, valor, variacao, min, max, media, url) %>% 
-  rename("Título" = nome, Autor = autor, Editora = editora, Valor = valor, "Variação" = variacao, "Valor Mínimo" = min, "Valor Máximo" = max, "Valor Médio" = media, Imagem = url) %>% 
-  gather("Especificações", Resultado, `Título`:`Valor Médio`) %>% 
-  mutate(Imagem = Imagem %>% pandoc.image.return())
+#data <- data %>% .[1,] %>%
+#  select(nome, autor, editora, valor, variacao, min, max, media, url) %>% 
+#  rename("Título" = nome, Autor = autor, Editora = editora, Valor = valor, "Variação" = variacao, "Valor Mínimo" = min, "Valor Máximo" = max, "Valor Médio" = media, Imagem = url) %>% 
+#  gather("Especificações", Resultado, `Título`:`Valor Médio`) %>% 
+#  mutate(Imagem = Imagem %>% pandoc.image.return())
 
 
-print(kable(data, format="html") %>% 
-        kable_styling(full_width=TRUE) %>% 
-        collapse_rows(columns=1, valign="top"))
-}
+#print(kable(data, format="html") %>% 
+#        kable_styling(full_width=TRUE) %>% 
+#        collapse_rows(columns=1, valign="top"))
+#}
 
 ```
