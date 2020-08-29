@@ -14,11 +14,11 @@ title: "Lista de Livros Digitais em Promoção"
 #  
 ### Abaixo são apresentados os **10 livros** que apresentam a maior diminuição de preços se comparado à sua média histórica.
 
-[1](https://amzn.to/2YKeHfZ)
-[2](https://amzn.to/3gFCZxL)
-[3](https://amzn.to/2QBJK9c)
-[4](https://amzn.to/3luw3am)
-[5](https://amzn.to/31EZqPh)
+[1](https://amzn.to/2YKeHfZ)  
+[2](https://amzn.to/3gFCZxL)  
+[3](https://amzn.to/2QBJK9c)  
+[4](https://amzn.to/3luw3am)  
+[5](https://amzn.to/31EZqPh)  
   
 
   
