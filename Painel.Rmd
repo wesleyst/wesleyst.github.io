@@ -6,7 +6,7 @@ title: "Painéis de Dados"
 #
 #
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+```{r setup, echo=FALSE, message=FALSE}
 library(tidyverse)
 library(knitr)
 ```
@@ -38,6 +38,6 @@ include_graphics("Imagens/Painel.png")
 ### [Painel Enem](https://bit.ly/Enempainel_2017)
 
 #
-```{r enem, fig.align='center', fig.cap="Painel", out.width="100%", echo=FALSE}
+```{r enem, fig.align='center', fig.cap="Imagens do Painel", out.width="100%", echo=FALSE}
 include_graphics("Imagens/Enem.png")
 ```

@@ -9,8 +9,6 @@ navbar:
       href: about.html
     - text: "Painéis"
       href: Painel.html
-    - text: "Shiny"
-      href: Shiny.html
 output:
   html_document:
     theme: cosmo
