@@ -5,6 +5,9 @@ title: "Lista de Livros Digitais em Promoção"
   
   
 #
+#
+#
+#
   
 # Informções Gerais
   
@@ -12,16 +15,7 @@ title: "Lista de Livros Digitais em Promoção"
 #
 ### Para a obtenção das informações, foi realizado um WebScrapping do site da Amazon e armazenado o histórico de preços dos produtos em questão.  
 #  
-### Abaixo são apresentados os **10 livros** que apresentam a maior diminuição de preços se comparado à sua média histórica.
-
-[1](https://amzn.to/2YKeHfZ)  
-[2](https://amzn.to/3gFCZxL)  
-[3](https://amzn.to/2QBJK9c)  
-[4](https://amzn.to/3luw3am)  
-[5](https://amzn.to/31EZqPh)  
-  
-
-  
+### Abaixo são apresentados os **10 livros** que apresentam a maior diminuição de preço se comparado à sua média histórica.
 
 ```{r setup, include=FALSE, echo=F, warning=FALSE}
 
@@ -39,23 +33,36 @@ selecao <- dados %>% group_by(cod) %>%
   mutate(variacao = str_c(round(variacao, 1), "%")) %>% 
   .[1:10,]
 
+
 ```
 
 ```{r loops, echo=F, results="asis", warning=FALSE}
 
-#for(i in 1:nrow(selecao)){
-#data <- selecao[i,]
+data <- selecao
 
-#data <- data %>% .[1,] %>%
-#  select(nome, autor, editora, valor, variacao, min, max, media, url) %>% 
-#  rename("Título" = nome, Autor = autor, Editora = editora, Valor = valor, "Variação" = variacao, "Valor Mínimo" = min, "Valor Máximo" = max, "Valor Médio" = media, Imagem = url) %>% 
-#  gather("Especificações", Resultado, `Título`:`Valor Médio`) %>% 
-#  mutate(Imagem = Imagem %>% pandoc.image.return())
+data <- data %>%
+  group_by(nome) %>% 
+  select(nome, autor, editora, valor, variacao, min, max, media, url) %>% 
+  rename("Título" = nome, Autor = autor, Editora = editora, Valor = valor, "Variação" = variacao, "Valor Mínimo" = min, "Valor Máximo" = max, "Valor Médio" = media, Imagem = url) %>% 
+  gather("Especificações", Resultado, `Título`:`Valor Médio`) %>% 
+  arrange(Imagem)
 
+```
+#  
+#   
+## Lista de Livros
 
-#print(kable(data, format="html") %>% 
-#        kable_styling(full_width=TRUE) %>% 
-#        collapse_rows(columns=1, valign="top"))
-#}
+```{r lugar, echo=F, results="asis", warning=FALSE, message=FALSE}
+
+data2 <- data %>% select(`Especificações`, Resultado, Imagem)
+
+datat <- data2 %>% mutate(Texto = str_c(`Especificações`,": ", Resultado)) %>%  group_by(Imagem) %>% summarise(text = str_c(Texto, collapse = "<br><br>")) %>% mutate(lugar = "") 
+datat2 <- datat %>% select(Imagem)
+datat <- datat %>% mutate(row = c(1:10)) %>% rename(`Número` = row, `Especificações` = text, Figura = lugar) %>% select(`Número`, `Especificações`, Figura)
+
+datat  %>%
+  kable("html", escape = FALSE) %>% 
+  kable_styling(font_size = 17) %>% 
+  column_spec(3, image = datat2$Imagem)
 
 ```
