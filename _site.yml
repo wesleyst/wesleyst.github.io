@@ -10,7 +10,7 @@ navbar:
     - text: "Painéis"
       href: Painel.html
     - text: "Shiny"	
-      href: Shiny.html	
+      href: shiny.html	
 output:
   html_document:
     theme: cosmo
